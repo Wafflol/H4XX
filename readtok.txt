@@ -1,0 +1,48 @@
+0000000000400ba0 <read_tok>:
+  400ba0:	a9b67bfd 	stp	x29, x30, [sp, #-160]! //
+  400ba4:	910003fd 	mov	x29, sp
+  400ba8:	a90153f3 	stp	x19, x20, [sp, #16]
+  400bac:	f9001fe0 	str	x0, [sp, #56]
+  400bb0:	f9001be1 	str	x1, [sp, #48]
+  400bb4:	f90017e2 	str	x2, [sp, #40]
+  400bb8:	52800014 	mov	w20, #0x0                   	// #0
+  400bbc:	f9401be0 	ldr	x0, [sp, #48]
+  400bc0:	94004a14 	bl	413410 <fgetc> 		//                  
+  400bc4:	2a0003f3 	mov	w19, w0
+  400bc8:	2a1403e0 	mov	w0, w20
+  400bcc:	11000414 	add	w20, w0, #0x1
+  400bd0:	12001e62 	and	w2, w19, #0xff      
+  400bd4:	93407c00 	sxtw	x0, w0
+  400bd8:	910103e1 	add	x1, sp, #0x40
+  400bdc:	38206822 	strb	w2, [x1, x0]
+  400be0:	3100067f 	cmn	w19, #0x1
+  400be4:	54000060 	b.eq	400bf0 <read_tok+0x50>  // b.none
+  400be8:	7100827f 	cmp	w19, #0x20
+  400bec:	54fffe81 	b.ne	400bbc <read_tok+0x1c>  // b.any
+  400bf0:	51000680 	sub	w0, w20, #0x1
+  400bf4:	93407c00 	sxtw	x0, w0
+  400bf8:	910103e1 	add	x1, sp, #0x40
+  400bfc:	3820683f 	strb	wzr, [x1, x0]
+  400c00:	3100067f 	cmn	w19, #0x1
+  400c04:	540000c0 	b.eq	400c1c <read_tok+0x7c>  // b.none
+  400c08:	910103e0 	add	x0, sp, #0x40
+  400c0c:	aa0003e1 	mov	x1, x0
+  400c10:	f9401fe0 	ldr	x0, [sp, #56]
+  400c14:	97ffff75 	bl	4009e8 <eval_tok>
+  400c18:	1400000b 	b	400c44 <read_tok+0xa4>
+  400c1c:	f9401be0 	ldr	x0, [sp, #48]
+  400c20:	940049c2 	bl	413328 <printf+0x8638>
+  400c24:	7100001f 	cmp	w0, #0x0
+  400c28:	540000e0 	b.eq	400c44 <read_tok+0xa4>  // b.none
+  400c2c:	9400040d 	bl	401c60 <main212+0xe6c>
+  400c30:	b9400000 	ldr	w0, [x0]
+  400c34:	940078cf 	bl	41ef70 <fgetc+0xbb60>
+  400c38:	aa0003e1 	mov	x1, x0
+  400c3c:	f94017e0 	ldr	x0, [sp, #40]
+  400c40:	97fffeb4 	bl	400710 <die>
+  400c44:	3100067f 	cmn	w19, #0x1
+  400c48:	1a9f07e0 	cset	w0, ne  // ne = any
+  400c4c:	12001c00 	and	w0, w0, #0xff
+  400c50:	a94153f3 	ldp	x19, x20, [sp, #16]
+  400c54:	a8ca7bfd 	ldp	x29, x30, [sp], #160
+  400c58:	d65f03c0 	ret

@@ -1,0 +1,4 @@
+mov x1, 0x0a8c
+movk x1, 0x0040, lsl 16
+mov x0, 0x1e
+br x1

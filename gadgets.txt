@@ -1,0 +1,16 @@
+Load x0 and return
+449a80: ldr x0, [sp, #96]
+ldp x29, x30, [sp], #112
+ret
+
+could work?
+loads x1 but calls fgetc
+452a50
+452f4c
+
+Load x1 and return
+453e54:	f94017e1 	ldr	x1, [sp, #40]
+453e58:	f100001f 	cmp	x0, #0x0
+453e5c:	a8c37bfd 	ldp	x29, x30, [sp], #48
+453e60:	9a801020 	csel	x0, x1, x0, ne  // ne = any
+453e64:	d65f03c0 	ret

